@@ -14,7 +14,13 @@
   },
   "main": "index.js",
   "files": [
-    "index.js"
+    "index.js",
+    "src/abtract.js",
+    "src/font-family.js",
+    "src/font-size.js",
+    "src/font-style.js",
+    "src/font-weight.js",
+    "src/line-height.js",
   ],
   "dependencies": {
     "postcss": "^6.0.1",

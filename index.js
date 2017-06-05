@@ -1,16 +1,13 @@
-'use strict';
-
 // tooling
 const postcss = require('postcss');
-const path = require('path');
 
 // plugins
 var plugins = [
-	require(path.join(__dirname,'./src/font-family.js')),
-	require(path.join(__dirname,'./src/font-size.js')),
-	require(path.join(__dirname,'./src/font-style.js')),
-	require(path.join(__dirname,'./src/font-weight.js')),
-	require(path.join(__dirname,'./src/line-height.js'))
+	require('./src/font-family.js'),
+	require('./src/font-size.js'),
+	require('./src/font-style.js'),
+	require('./src/font-weight.js'),
+	require('./src/line-height.js')
 ]
 
 // plugin
