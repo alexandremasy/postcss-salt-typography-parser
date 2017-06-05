@@ -1,3 +1,5 @@
+'use strict';
+
 // tooling
 const postcss = require('postcss');
 
@@ -9,7 +11,6 @@ var plugins = [
 	require('./src/font-weight.js'),
 	require('./src/line-height.js')
 ]
-
 
 // plugin
 module.exports = postcss.plugin('postcss-salt-typography', (opts) => {
