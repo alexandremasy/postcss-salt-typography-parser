@@ -1,4 +1,4 @@
-# [WIP] PostCSS - Typography Parser utility
+# [WIP] Salt - Typography Parser utility
 
 > PostCSS plugin that walk through you css declarations to find the dynamic font values and enforce a predefined one. This plugin is part of [Salt](https://github.com/alexandremasy/salt), a collection of tool to help you enforce a set of rule througout your application.
 
@@ -66,7 +66,7 @@ html
 
 ### #font-family
 
-Define a font-family. 
+Define a font-family.
 
 ```css
 #font-family: <domain>;
@@ -263,4 +263,3 @@ font-style: [italic | oblique | normal]
 | Property | Type   | Description               |
 | -------- | ------ | ------------------------- |
 | `length` | Number | The defined length value. |
-
