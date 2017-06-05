@@ -62,18 +62,50 @@ class fontSize extends abstract
    **/
   apply(def)
   {
-    var tpl = `font-size: ${def.size}
-    @media(<xs)
+    let tpl;
+    if (Array.isArray(def.size))
     {
-      font-size: ${def.size[0]};
+      let fontFirst = this.stripUnit(def.size[0]);
+      let fontLast = this.stripUnit(def.size[def.size.length-1]);
+
+      // @TODO Replace with appropriate values
+      let breakpointFirst = 16;
+      let breakpointLast = 89;
+      let fontUnit = /^([+-]?(?:\d+|\d*\.\d+))([a-z]*|%)$/.exec(def.size[0])[2];
+      // @TODO Compute appropriate value
+      let breakpointUnit = 'rem';
+
+      tpl = `
+      font-size: calc(${fontFirst + fontUnit}+(${fontLast}-${fontFirst})*(100vw-${breakpointFirst+breakpointUnit})/(${breakpointLast}-${breakpointFirst}));
+
+      *breakpoint('>last')
+      {
+        font-size: ${fontLast + fontUnit};
+      }
+
+      *breakpoint('<first')
+      {
+        font-size: ${fontFirst + fontUnit};
+      }
+      `;
     }
-    @media(>xs)
+    else
     {
-      font-size: ${def.size[1]};
+      tpl = `font-size: ${def.size}`
     }
-    `;
 
     return postcss.parse(tpl);
+  }
+
+  /**
+   *  Strip the unit
+   *
+   *  @param {String} value
+   *  @return {Number}
+   **/
+  stripUnit(value)
+  {
+    return parseFloat(/^([+-]?(?:\d+|\d*\.\d+))([a-z]*|%)$/.exec(value)[0]);
   }
 }
 
