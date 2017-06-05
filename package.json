@@ -20,7 +20,7 @@
     "src/font-size.js",
     "src/font-style.js",
     "src/font-weight.js",
-    "src/line-height.js",
+    "src/line-height.js"
   ],
   "dependencies": {
     "postcss": "^6.0.1",
